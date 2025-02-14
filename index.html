@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Slider</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zeyada&display=swap">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: url('images/ab.jpg') top left / 50% 100% no-repeat,
+                  url('images/ab1.jpg') top right / 50% 100% no-repeat;
+      overflow: hidden;
+      flex-direction: column;
+    }
+    .slider-container {
+      position: relative;
+      width: 100vw;
+      height: 80vh;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+      height: 100%;
+    }
+    .slider img {
+      width: 100vw;
+      height: 80vh;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 0 10px;
+      cursor: pointer;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-container">
+    <div class="slider" id="imageSlider">
+      <img src="images/Screenshot_20250214_184508_WhatsApp.jpg" alt="Slide 1">
+      <img src="images/Screenshot_20250214_184513_WhatsApp.jpg" alt="Slide 2">
+      <img src="images/Screenshot_20250214_184524_WhatsApp.jpg" alt="Slide 3">
+      <img src="images/Screenshot_20250214_184535_WhatsApp.jpg" alt="Slide 4">
+      <img src="images/Screenshot_20250214_184550_WhatsApp.jpg" alt="Slide 5">
+      <img src="images/Screenshot_20250214_184609_WhatsApp.jpg" alt="Slide 6">
+      <img src="images/Screenshot_20250214_184629_WhatsApp.jpg" alt="Slide 7">
+      <img src="images/Screenshot_20250214_184640_WhatsApp.jpg" alt="Slide 8">
+      <img src="images/Screenshot_20250214_184646_WhatsApp.jpg" alt="Slide 9">
+      <img src="images/Screenshot_20250214_184704_WhatsApp.jpg" alt="Slide 10">
+      <img src="images/Screenshot_20250214_184711_WhatsApp.jpg" alt="Slide 11">
+      <img src="images/Screenshot_20250214_184741_WhatsApp.jpg" alt="Slide 12">
+      <img src="images/Screenshot_20250214_184753_WhatsApp.jpg" alt="Slide 13">
+      <img src="images/Screenshot_20250214_184808_WhatsApp.jpg" alt="Slide 14">
+      <img src="images/Screenshot_20250214_184813_WhatsApp.jpg" alt="Slide 15">
+      <img src="images/Screenshot_20250214_184818_WhatsApp.jpg" alt="Slide 16">
+      <img src="images/Screenshot_20250214_184833_WhatsApp.jpg" alt="Slide 17">
+      <img src="images/Screenshot_20250214_184857_WhatsApp.jpg" alt="Slide 18">
+      <img src="images/Screenshot_20250214_184918_WhatsApp.jpg" alt="Slide 19">
+      <img src="images/Screenshot_20250214_184946_WhatsApp.jpg" alt="Slide 20">
+      <img src="images/Screenshot_20250214_185002_WhatsApp.jpg" alt="Slide 21">
+      <img src="images/Screenshot_20250214_185016_WhatsApp.jpg" alt="Slide 22">
+      <img src="images/Screenshot_20250214_185036_WhatsApp.jpg" alt="Slide 23">
+      <img src="images/Screenshot_20250214_185056_WhatsApp.jpg" alt="Slide 24">
+      <img src="images/Screenshot_20250214_185117_WhatsApp.jpg" alt="Slide 25">
+      <img src="images/Screenshot_20250214_185129_WhatsApp.jpg" alt="Slide 26">
+      <img src="images/Screenshot_20250214_185136_WhatsApp.jpg" alt="Slide 27">
+      <img src="images/Screenshot_20250214_185146_WhatsApp.jpg" alt="Slide 28">
+      <img src="images/Screenshot_20250214_185236_WhatsApp.jpg" alt="Slide 29">
+      <img src="images/Screenshot_20250214_185242_WhatsApp.jpg" alt="Slide 30">
+    </div>
+  </div>
+  <div class="buttons">
+    <button class="btn" onclick="prevSlide()">⬅ Left</button>
+    <button class="btn" onclick="nextSlide()">Right ➡</button>
+  </div>
+  <script>
+    let currentIndex = 0;
+    const slider = document.getElementById("imageSlider");
+    const totalImages = slider.children.length;
+
+    function updateSliderPosition() {
+      slider.style.transform = `translateX(${-currentIndex * 100}vw)`;
+    }
+
+    function nextSlide() {
+      if (currentIndex < totalImages - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+      }
+      updateSliderPosition();
+    }
+
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = totalImages - 1;
+      }
+      updateSliderPosition();
+    }
+  </script>
+</body>
+</html>
